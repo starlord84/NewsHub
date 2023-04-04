@@ -33,19 +33,16 @@ class Category(models.Model):
 
 
 class Comment(models.Model):
-    news = models.ForeignKey(News, on_delete=models.CASCADE, related_name='comments')
-    name = models.CharField(max_length=100, verbose_name='Имя')
-    body = models.TextField(verbose_name='Комментарий')
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
-    active = models.BooleanField(default=True, verbose_name='Активен')
-    email = models.EmailField(verbose_name='E-mail')
-    text = models.TextField(verbose_name='Комментарий')
-    name = models.CharField(max_length=100, verbose_name='Имя')
-
-    def __str__(self):
-        return f'Комментарий от {self.name} на новость {self.news.title}'
+    author = models.CharField(max_length=50, verbose_name='Автор')
+    email = models.EmailField(verbose_name='Email')
+    text = models.TextField(verbose_name='Текст комментария')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    news = models.ForeignKey(News, on_delete=models.CASCADE, related_name='comments', verbose_name='Новость')
 
     class Meta:
-        ordering = ['-created_at']
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
+
+    def __str__(self):
+        return self.text[:15]
+
