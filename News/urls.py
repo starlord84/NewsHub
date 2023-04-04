@@ -1,5 +1,4 @@
 from django.urls import path
-# from News.views import index, get_category, view_news, add_news, test
 from News.views import HomeNews, NewsByCategory, ViewNews, AddNews, register, user_login, user_logout, add_comment
 from django.views.decorators.cache import cache_page
 
