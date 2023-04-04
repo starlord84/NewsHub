@@ -14,6 +14,7 @@
 <div class="card mb-3" style="width: 1300px;">
     {{ forloop.counter }}
         <div class="card-header">
+        <div class="card-header">
             Категория: <a href="{{ item.category.get_absolute_url }}">{{ item.category.title }}</a>
         </div>
             <div class="media" style="display:flex">

@@ -28,7 +28,7 @@
             </div>
             {% endautoescape %}
     <div class="card-footer text-muted">
-        <div class="date"">
+        <div class="date">
             {{ news_item.created_at|date:'Y-m-d H:i' }}
             <a href="{% url 'add_comment' news_item.id %}" style="margin-left: 900px">Добавить комментарий</a>
         </div>

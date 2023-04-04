@@ -86,7 +86,7 @@ def add_comment(request, news_id):
             comment = form.save(commit=False)
             comment.news = news
             comment.save()
-            return redirect('view_news', pk=news_id)
+            return redirect('View_news', pk=news_id)
     else:
         form = CommentForm()
     return render(request, 'News/comments.html', {'news': news, 'form': form})
